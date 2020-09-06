@@ -1,0 +1,2 @@
+rootProject.name='MyAliceApp'
+include ':app'

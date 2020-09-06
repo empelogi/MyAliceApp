@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyAliceApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Connections</string>
+    <string name="title_notifications">Credentials</string>
+    <string name="title_proof">Proof Requests</string>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_link_black_24dp"
+        android:title="Connections" />
+
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_perm_identity_black_24dp"
+        android:title="Credentials" />
+
+    <item
+        android:id="@+id/navigation_proofrequest"
+        android:icon="@drawable/ic_work_black_24dp"
+        android:title="Proof Requests" />
+
+</menu>
