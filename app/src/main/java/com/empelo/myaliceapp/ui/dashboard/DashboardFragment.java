@@ -66,6 +66,14 @@ public class DashboardFragment extends Fragment {
             }
         });
 
+        dashboardViewModel.getInvText().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                textView1.setText(s);
+            }
+        });
+
+
 
         //displaying the message that is from the call to the API
         dashboardViewModel.getTextFromApi().observe(getViewLifecycleOwner(), new Observer<String>() {
