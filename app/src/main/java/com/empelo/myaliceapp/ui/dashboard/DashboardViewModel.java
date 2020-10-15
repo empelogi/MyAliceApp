@@ -20,7 +20,6 @@ import java.util.Map;
 
 public class DashboardViewModel extends ViewModel {
 
-    private MutableLiveData<String> invasion;
     private MutableLiveData<String> mText;
     private MutableLiveData<String> textforInv;
     private MutableLiveData<String> textfromAPI;
@@ -32,13 +31,9 @@ public class DashboardViewModel extends ViewModel {
 
         textforInv = new MutableLiveData<>();
         textfromAPI = new MutableLiveData<>();
-        invasion = new MutableLiveData<>();
 
         //making a call to an API
         AndroidNetworking.get("http://192.168.1.8:8031/connections")
-                //.addPathParameter("pageNumber", "0")
-                //.addQueryParameter("limit", "3")
-                //.addHeaders("token", "1234")
                 .setTag("test")
                 .setPriority(Priority.LOW)
                 .build()
@@ -74,26 +69,6 @@ public class DashboardViewModel extends ViewModel {
 
         textforInv.setValue("Nothing to display yet");
 
-        //post the accepted invitation from faber
-       // System.out.println(getInvation().toString());
-       // JSONObject obj = new JSONObject(getInvation().toString());
-//        AndroidNetworking.post("http://192.168.1.8:8020/connections/receive-invitation")
-//                .addJSONObjectBody(obj) // posting json
-//                .setTag("test")
-//                .setPriority(Priority.MEDIUM)
-//                .build()
-//                .getAsJSONArray(new JSONArrayRequestListener() {
-//                    @Override
-//                    public void onResponse(JSONArray response) {
-//                        // do anything with response
-//                    }
-//                    @Override
-//                    public void onError(ANError error) {
-//                        // handle error
-//                    }
-//                });
-//        Log.d("_DATA", obj.toString());
-
     }
 
 
@@ -107,14 +82,6 @@ public class DashboardViewModel extends ViewModel {
 
     public LiveData<String> getTextFromApi() {
         return textfromAPI;
-    }
-
-    public void setInvation(String invation){
-       this.invasion = invasion;
-    }
-
-    public LiveData<String> getInvation() {
-        return invasion;
     }
 
 }
