@@ -16,9 +16,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Map;
+
 public class DashboardViewModel extends ViewModel {
 
-    private String invasion;
+    private MutableLiveData<String> invasion;
     private MutableLiveData<String> mText;
     private MutableLiveData<String> textforInv;
     private MutableLiveData<String> textfromAPI;
@@ -30,6 +32,7 @@ public class DashboardViewModel extends ViewModel {
 
         textforInv = new MutableLiveData<>();
         textfromAPI = new MutableLiveData<>();
+        invasion = new MutableLiveData<>();
 
         //making a call to an API
         AndroidNetworking.get("http://192.168.1.8:8031/connections")
@@ -72,7 +75,8 @@ public class DashboardViewModel extends ViewModel {
         textforInv.setValue("Nothing to display yet");
 
         //post the accepted invitation from faber
-//        JSONObject obj = new JSONObject(invasion);
+       // System.out.println(getInvation().toString());
+       // JSONObject obj = new JSONObject(getInvation().toString());
 //        AndroidNetworking.post("http://192.168.1.8:8020/connections/receive-invitation")
 //                .addJSONObjectBody(obj) // posting json
 //                .setTag("test")
@@ -106,6 +110,11 @@ public class DashboardViewModel extends ViewModel {
     }
 
     public void setInvation(String invation){
-        this.invasion = invation;
+       this.invasion = invasion;
     }
+
+    public LiveData<String> getInvation() {
+        return invasion;
+    }
+
 }
