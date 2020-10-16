@@ -16,6 +16,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class DashboardViewModel extends ViewModel {
@@ -51,13 +53,17 @@ public class DashboardViewModel extends ViewModel {
                         for (int i = 0; i < textArray.length(); i++) {
                             try {
                                 Log.d("text", textArray.getString(i));
-                                if(textArray.getString(i).contains("active")){
-                                    textforInv.setValue(textArray.getString(i));
-                                }else{
-                                    String perf = textArray.toString();
-                                    //setting the value to the MutableLiveData<String>
-                                    //so that we can print in the text view that we have on our screen
-                                    textfromAPI.setValue(perf);
+                                JSONObject connections = textArray.getJSONObject(i);
+                                String state = connections.getString("state");
+                                List<String> lol = new ArrayList<>();
+                                if(state.equals("active")){
+                                    lol.add(textArray.getString(i));
+                                    textforInv.setValue(lol.toString());
+                                }else if(state.equals("invitation")){
+                                    //String perf = textArray.getString(i);
+                                   // textfromAPI.setValue(perf);
+                                    lol.add(textArray.getString(i));
+                                    textfromAPI.setValue(lol.toString());
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
