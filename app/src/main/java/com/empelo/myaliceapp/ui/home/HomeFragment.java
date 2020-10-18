@@ -1,6 +1,7 @@
 package com.empelo.myaliceapp.ui.home;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,12 +31,25 @@ public class HomeFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
         final TextView textView = root.findViewById(R.id.text_home);
+        final TextView tvStat = root.findViewById(R.id.status);
+
         homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
             }
         });
+
+        homeViewModel.getStatus().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                if(s.equals("Connected")) tvStat.setTextColor(Color.GREEN);
+                else tvStat.setTextColor(Color.RED);
+                tvStat.setText(s);
+            }
+        });
+
+
         return root;
 
     }

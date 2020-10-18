@@ -14,12 +14,12 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="700dp">
 
             <TextView
                 android:id="@+id/text_dashboard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="374dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
@@ -36,8 +36,8 @@
                 android:id="@+id/tvNew"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_below="@+id/text_dashboard"
+                android:layout_marginTop="8dp"
                 android:text="New Invitation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.05"
@@ -46,13 +46,13 @@
 
             <EditText
                 android:id="@+id/acceptInvObject"
-                android:layout_width="362dp"
-                android:layout_height="98dp"
-                android:layout_marginTop="29dp"
+                android:layout_width="355dp"
+                android:layout_height="56dp"
+                android:layout_below="@+id/tvNew"
+                android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="Paste the Invitation Object Here"
-                android:layout_below="@+id/tvNew"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.183"
@@ -94,9 +94,9 @@
                 android:id="@+id/tvAccept"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
-                android:text="Accept Invitation"
                 android:layout_below="@+id/CreateBtn"
+                android:layout_marginTop="20dp"
+                android:text="Accept Invitation"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.053"
                 app:layout_constraintStart_toStartOf="parent"
@@ -104,12 +104,12 @@
 
             <EditText
                 android:id="@+id/invitationObject"
-                android:layout_width="362dp"
-                android:layout_height="98dp"
-                android:layout_marginTop="29dp"
+                android:layout_width="385dp"
+                android:layout_height="58dp"
+                android:layout_below="@+id/tvAccept"
+                android:layout_marginTop="2dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:layout_below="@+id/tvAccept"
                 android:text="Copy the Invitation Object Here"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -153,9 +153,9 @@
                 android:id="@+id/tvActive"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:text="Active"
                 android:layout_below="@+id/acceptBtn"
+                android:layout_marginTop="8dp"
+                android:text="Active"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.053"
                 app:layout_constraintStart_toStartOf="parent"
@@ -166,7 +166,7 @@
                 android:layout_width="392dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvActive"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="7dp"
                 android:text="This is where the active connection will show"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.053"
@@ -177,17 +177,17 @@
                 android:id="@+id/tvPending"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:text="Pending"
-                android:layout_below="@+id/showActive" />
+                android:layout_below="@+id/showActive"
+                android:layout_marginTop="11dp"
+                android:text="Pending" />
 
             <TextView
                 android:id="@+id/showPending"
                 android:layout_width="392dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvPending"
-                android:layout_marginTop="20dp"
-                android:text="This is where the pending connection will show"/>
+                android:layout_marginTop="4dp"
+                android:text="This is where the pending connection will show" />
 
 
         </RelativeLayout>

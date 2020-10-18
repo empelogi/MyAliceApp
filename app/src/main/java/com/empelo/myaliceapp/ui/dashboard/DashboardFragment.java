@@ -40,23 +40,35 @@ public class DashboardFragment extends Fragment {
         final TextView showPending = root.findViewById(R.id.showPending);
         final TextView acceptInv = root.findViewById(R.id.invitationObject);
         final Button btnAccept = root.findViewById(R.id.acceptBtn);
+        final TextView AcceptInv = root.findViewById(R.id.acceptInvObject);
 
         //finding the text view in the fragment by its id
         final TextView textView2 = root.findViewById(R.id.acceptInvObject);
 
-//        btnCreateInv.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                // Perform action on click
-//
-//                //displaying the message that is from the call to the API
-//                dashboardViewModel.getTextFromApi().observe(getViewLifecycleOwner(), new Observer<String>() {
-//                    @Override
-//                    public void onChanged(String s) {
-//                        textView2.setText(s);
-//                    }
-//                });
-//
-//            }         });
+        btnCreateInv.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Perform action on click
+                JSONObject obj = null;
+                AndroidNetworking.post("http://192.168.1.8:8031/connections/create-invitation")
+                        .addJSONObjectBody(obj) // posting json
+                        .setTag("test")
+                        .setPriority(Priority.MEDIUM)
+                        .build()
+                        .getAsJSONArray(new JSONArrayRequestListener() {
+                            @Override
+                            public void onResponse(JSONArray response) {
+                                // do anything with response
+                                Log.d("_LOL", response.toString());
+                                System.out.println(response);
+                            }
+                            @Override
+                            public void onError(ANError error) {
+                                // handle error
+                            }
+                        });
+
+
+            }         });
 
 
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {

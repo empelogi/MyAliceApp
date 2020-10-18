@@ -57,12 +57,19 @@ public class DashboardViewModel extends ViewModel {
                                 String state = connections.getString("state");
                                 List<String> lol = new ArrayList<>();
                                 if(state.equals("active")){
-                                    lol.add(textArray.getString(i));
+                                    String from = connections.getString("their_label");
+                                    String did = connections.getString("their_did");
+                                    lol.add("Received from: " + from);
+                                    lol.add("Sender DID: " + did);
                                     textforInv.setValue(lol.toString());
                                 }else if(state.equals("invitation")){
-                                    //String perf = textArray.getString(i);
-                                   // textfromAPI.setValue(perf);
-                                    lol.add(textArray.getString(i));
+//                                    String perf = textArray.getString(i);
+//                                    textfromAPI.setValue(perf);
+                                    String key = connections.getString("invitation_key");
+                                    String date = connections.getString("created_at");
+                                    lol.add("Invitation key: "+ key);
+                                    lol.add("Date: "+ date);
+                                    lol.add("\n");
                                     textfromAPI.setValue(lol.toString());
                                 }
                             } catch (JSONException e) {

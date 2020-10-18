@@ -15,6 +15,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class NotificationsViewModel extends ViewModel {
 
     private MutableLiveData<String> credentials;
@@ -26,7 +30,7 @@ public class NotificationsViewModel extends ViewModel {
         credentials = new MutableLiveData<>();
 
         mText = new MutableLiveData<>();
-        mText.setValue("This is credentials fragment");
+        mText.setValue("This is the credentials fragment");
 
         AndroidNetworking.get("http://192.168.1.8:8031/credentials")
                 .setTag("test")
@@ -46,7 +50,17 @@ public class NotificationsViewModel extends ViewModel {
                         for (int i = 0; i < textArray.length(); i++) {
                             try {
                                 Log.d("text", textArray.getString(i));
-                                credentials.setValue(textArray.getString(i));
+                                JSONObject connections = textArray.getJSONObject(i);
+                                JSONObject attrs = connections.getJSONObject("attrs");
+
+                                List<String> credList = new ArrayList<>();
+                                credList.add("Schema ID : " + connections.getString("schema_id") + "\n");
+                                credList.add("Credential Definition ID: "+ connections.getString("cred_def_id") + "\n");
+                                credList.add("Name : " + attrs.getString("name") + "\n");
+                                credList.add("Age : " + attrs.getString("age") + "\n");
+                                credList.add("Degree : " + attrs.getString("degree") + "\n");
+                                credentials.setValue(credList.toString());
+
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
