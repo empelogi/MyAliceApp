@@ -24,10 +24,18 @@ public class ProofFragment extends Fragment {
                 ViewModelProviders.of(this).get(ProofViewModel.class);
         View root = inflater.inflate(R.layout.fragment_proof, container, false);
         final TextView textView = root.findViewById(R.id.text_proof);
+        final TextView tvProof = root.findViewById(R.id.tvProof);
         proofViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
+            }
+        });
+
+        proofViewModel.getProof().observe(getViewLifecycleOwner(), new Observer<String>() {
+            @Override
+            public void onChanged(@Nullable String s) {
+                tvProof.setText(s);
             }
         });
         return root;
