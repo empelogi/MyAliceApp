@@ -56,9 +56,9 @@ public class NotificationsViewModel extends ViewModel {
                                 List<String> credList = new ArrayList<>();
                                 credList.add("Schema ID : " + connections.getString("schema_id") + "\n");
                                 credList.add("Credential Definition ID: "+ connections.getString("cred_def_id") + "\n");
-                                credList.add("Name : " + attrs.getString("name") + "\n");
-                                credList.add("Age : " + attrs.getString("age") + "\n");
-                                credList.add("Degree : " + attrs.getString("degree") + "\n");
+                                credList.add("Full Name : " + attrs.getString("full_name") + "\n");
+                                credList.add("Date of Birth : "  + attrs.getString("birth_date") + "\n");
+                                credList.add("Identity Card Number : " + attrs.getString("id_card") + "\n");
                                 credentials.setValue(credList.toString());
 
                             } catch (JSONException e) {

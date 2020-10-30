@@ -24,6 +24,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class DashboardFragment extends Fragment {
 
     private DashboardViewModel dashboardViewModel;
@@ -58,8 +60,8 @@ public class DashboardFragment extends Fragment {
                             @Override
                             public void onResponse(JSONArray response) {
                                 // do anything with response
-                                Log.d("_LOL", response.toString());
-                                System.out.println(response);
+
+                               // Log.d("_LOL", response.toString());
                             }
                             @Override
                             public void onError(ANError error) {
@@ -69,6 +71,7 @@ public class DashboardFragment extends Fragment {
 
 
             }         });
+
 
 
         dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
